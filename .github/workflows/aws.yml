@@ -44,4 +44,5 @@ jobs:
         env:
           KUBECONFIG: ${{ secrets.KUBECONFIG }}
         run: |
+          aws eks update-kubeconfig --region us-east-1 --name club-cluster
           kubectl set image deployment/flask-app-my-flask-app-prod flask-app=499000782465.dkr.ecr.us-east-1.amazonaws.com/$ECR_REPOSITORY:$IMAGE_TAG
